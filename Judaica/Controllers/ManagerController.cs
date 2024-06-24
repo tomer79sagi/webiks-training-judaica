@@ -8,13 +8,19 @@ namespace Judaica.Controllers
 {
     public class ManagerController : Controller
     {
-        // פונקציה היוצרת קבוה חדשה במערכת
-        public IActionResult Create(int? id) // מספר מזהה של הקבוצה של ההורה
+        //פונקציה היוצרת קבוצה חדשה במערכת
+        public IActionResult Create(int? id)//מספר מזהה של הקבוצה של ההורה
         {
             List<Category> categories = Data.Get.GetAllCategoriesProperties;
-            Category parent = categories.FirstOrDefault(c => c.ID == id, categories.First());
+            Category parent = categories.FirstOrDefault(c=>c.ID == id,categories.First());
 
-            VMCreateCategory VM = 
+            VMCreateCategory VM = new VMCreateCategory
+            {
+                Categories = categories,
+                Parent = parent,
+                ParentID = parent.ID
+            };
+            return View(VM);
         }
 
         public IActionResult Index(int? id)

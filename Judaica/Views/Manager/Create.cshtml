@@ -1,0 +1,55 @@
+﻿@model Judaica.ViewModels.VMCreateCategory
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>@("הוספת קבוצה ל"+Model.Parent.Name)</h1>
+
+<h4>קבוצה חדשה</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ParentID" class="control-label"></label>
+                <select asp-for="ParentID" class="form-control" >
+                    @foreach (Category category in Model.Categories)
+                    {
+                        if(category.ID==Model.ParentID)
+                        {
+                            <option value="@category.ID" selected="selected">@category.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@category.ID">@category.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="ParentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category.Name" class="control-label"></label>
+                <input asp-for="Category.Name" class="form-control" />
+                <span asp-validation-for="Category.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SetImage" class="control-label"></label>
+                <input type="file" asp-for="SetImage" class="form-control" />
+                <span asp-validation-for="SetImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="הוספה" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
