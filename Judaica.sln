@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Judaica", "Judaica\Judaica.csproj", "{F9847AEF-B294-4A8D-97D0-F80EB5F5AF4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9847AEF-B294-4A8D-97D0-F80EB5F5AF4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9847AEF-B294-4A8D-97D0-F80EB5F5AF4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9847AEF-B294-4A8D-97D0-F80EB5F5AF4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9847AEF-B294-4A8D-97D0-F80EB5F5AF4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B83397E2-08F9-429D-B2C1-9E68DA965D82}
+	EndGlobalSection
+EndGlobal
