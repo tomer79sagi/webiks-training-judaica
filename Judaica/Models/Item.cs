@@ -4,6 +4,8 @@ namespace Judaica.Models
 {
     public class Item
     {
+        public Item() { Prices = new List<Price>(); }
+
         [Key]
         public int ID { get; set; }
 

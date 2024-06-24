@@ -42,8 +42,8 @@ namespace Judaica.Controllers
             //if (id == null) category = Data.Get.Categories.Include(c => c.SubCategories).Include(c=>c.Items.Select(i=>i.Prices)).First();
 
 
-            category = Data.Get.GetAllCategoriesProperties.FirstOrDefault(c => c.ID == id, Data.Get.GetAllCategoriesProperties.First());
-            return View();
+            //category = Data.Get.GetAllCategoriesProperties.FirstOrDefault(c => c.ID == id, Data.Get.GetAllCategoriesProperties.First());
+            return View(Data.Get.GetAllCategoriesProperties);
         }
     }
 }
