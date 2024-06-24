@@ -8,7 +8,7 @@ namespace Judaica.Models
     {
         public Category() 
         {
-            SubCategories = new List<Category>();
+           // SubCategories = new List<Category>();
             Items=new List<Item>();
         }   
         [Key]
@@ -17,11 +17,13 @@ namespace Judaica.Models
         [Display(Name ="שם קבוצה")]
         public string Name { get; set; }
         [Display(Name ="תמונה")]
-        public byte[] Image { get; set; }
+        public byte[]? Image { get; set; }
 
         //תתי קבוצות
-        public List<Category> SubCategories { get; set; }
-        public Category Parent { get; set; }
+        public List<Category> SubCategories { get;  }=new List<Category>();
+
+        //[ForeignKey("ID")]
+        public Category? Parent { get; set; } 
 
         //פריטים בקבוצה
         public List<Item> Items { get; set; }

@@ -1,6 +1,7 @@
 using Judaica.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Judaica.DAL;
 
 namespace Judaica.Controllers
 {
@@ -15,6 +16,7 @@ namespace Judaica.Controllers
 
         public IActionResult Index()
         {
+            List<Category> categories = Data.Get.Categories.ToList();
             return View();
         }
 

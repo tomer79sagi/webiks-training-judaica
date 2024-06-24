@@ -1,5 +1,6 @@
 ﻿using Judaica.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace Judaica.DAL
 {
@@ -12,9 +13,9 @@ namespace Judaica.DAL
         }
         private static DbContextOptions GetOptions(string connectionString)
         {
-            return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(),
-                connectionString).Options;
+            return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString).Options;
         }
+        
         private void Seed()
         {
             Category category = new Category { Name = "חנות יודאיקה הכי שווה בעולם" };
@@ -26,7 +27,16 @@ namespace Judaica.DAL
         {
             get
             {                
-                return Categories.Include(c=>c.SubCategories).Include(c=>c.Items).ThenInclude(i=>i.Prices).ToList();
+                return Categories
+                        .Include(c=>c.SubCategories)
+                        //.ThenInclude(sbc=>sbc.Items) יביא את כלל המוצרים מתחת לכלל הקטגוריות
+                        //.ThenInclude(sbci=>sbcii.Prices)
+                        .Include(c=>c.Items)                        
+                        .ThenInclude(i=>i.Prices)
+                        
+                        .Include(c=>c.Items)
+                        .ThenInclude(i=>i.Images)
+                        .ToList();
             }
         }
 
