@@ -16,15 +16,12 @@ namespace Judaica.ViewModels
         public Item Item { get; set; }
 
         [Display(Name = "הכנסת תמונה לקבוצה החדשה")]
-        public IFormFile SetImage
-        {
-            get { return null; }
-            set
-            {
-                if (value == null) return;
-                Category.Image = new ImageService(value).Image;
-            }
+        public IFormFile Image { get; set; }
 
-        }
+        [Display(Name = "הכנסת תמונה לפריט הראשון בקבוצה")]
+        public IFormFile ImageItem { get; set; }
+
+        [Display(Name = "מחיר")]
+        public decimal Price { get; set; } = 1000000;
     }
 }

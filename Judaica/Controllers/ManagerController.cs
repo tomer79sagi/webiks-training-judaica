@@ -23,6 +23,16 @@ namespace Judaica.Controllers
             return View(VM);
         }
 
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult Create(VMCreateCategory VM)
+        {
+            Category parent = Data.Get.Categories.FirstOrDefault(c => c.ID == VM.ParentID);
+            if (parent == null) return RedirectToAction("Index", "Home");
+            parent.AddSubCategory(VM.Category.Name, VM.Image).AddItem(VM.Item.Name, VM.ImageItem, VM.Price);
+            Data.Get.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Index(int? id)
         {
             Category category = null;
