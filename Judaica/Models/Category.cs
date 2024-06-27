@@ -17,7 +17,15 @@ namespace Judaica.Models
         [Display(Name ="שם קבוצה")]
         public string Name { get; set; }
         [Display(Name ="תמונה")]
-        public byte[]? Image { get; set; }
+        public byte[]? Image { get
+            {
+                if (Image != null)
+                {
+                    return Convert.ToBase64String(Image);
+                }
+                return null;
+            }; set { }
+        }
 
         //תתי קבוצות
         public List<Category> SubCategories { get;  }=new List<Category>();

@@ -35,14 +35,13 @@ namespace Judaica.Controllers
 
         public IActionResult Index(int? id)
         {
-            Category category = null;
+            //Category category = null;
             //List<Item> items = Data.Get.Items.Include(i => i.Prices).ToList();
             //if (id == null) category = Data.Get.Categories.Include(c => c.SubCategories).First();
 
             //if (id == null) category = Data.Get.Categories.Include(c => c.SubCategories).Include(c=>c.Items.Select(i=>i.Prices)).First();
-
-
             //category = Data.Get.GetAllCategoriesProperties.FirstOrDefault(c => c.ID == id, Data.Get.GetAllCategoriesProperties.First());
+
             return View(Data.Get.GetAllCategoriesProperties);
         }
     }
