@@ -28,15 +28,12 @@ namespace Judaica.DAL
             get
             {                
                 return Categories
-                        .Include(c=>c.SubCategories)
-                        //.ThenInclude(sbc=>sbc.Items) יביא את כלל המוצרים מתחת לכלל הקטגוריות
-                        //.ThenInclude(sbci=>sbcii.Prices)
-                        .Include(c=>c.Items)                        
-                        .ThenInclude(i=>i.Prices)
-                        
-                        .Include(c=>c.Items)
-                        .ThenInclude(i=>i.Images)
-                        .ToList();
+                    .Include(c=>c.SubCategories)
+                    .Include(c=>c.Items)                        
+                    .ThenInclude(i=>i.Prices)
+                    .Include(c=>c.Items)
+                    .ThenInclude(i=>i.Images)
+                    .ToList();
             }
         }
 
@@ -45,5 +42,7 @@ namespace Judaica.DAL
         public DbSet<Item> Items { get; set; }
         public DbSet<Price> Prices { get; set; }
         public DbSet<Image> Images { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }

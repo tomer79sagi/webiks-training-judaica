@@ -16,8 +16,8 @@ namespace Judaica.Controllers
 
         public IActionResult Index()
         {
-            List<Category> categories = Data.Get.Categories.ToList();
-            return View();
+            List<Category> categories = Data.Get.GetAllCategoriesProperties;
+            return View(categories);
         }
 
         public IActionResult Privacy()
